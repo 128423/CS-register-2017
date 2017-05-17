@@ -3,4 +3,4 @@
 
 será capaz de gerar grafico.
 
-mais informaçoes projeto.doc
+mais informaçoes https://github.com/128423/CS-register-2017/blob/master/Projeto.docx
