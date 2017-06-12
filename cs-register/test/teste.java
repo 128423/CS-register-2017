@@ -1,5 +1,5 @@
 
-import cs.register.cddao;
+import cs.register.abrirefeichar;
 import cs.register.partida;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class teste {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        cddao dao = new cddao();
+        abrirefeichar dao = new abrirefeichar();
         System.out.println("passou aqui");
        dao.lerd();
         partida part = new partida(10,2,2,1,9999,2);

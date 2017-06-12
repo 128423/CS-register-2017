@@ -28,7 +28,7 @@ public class jframe extends javax.swing.JFrame {
      * Creates new form jframe
      */
     public jframe() {
-        dao = new cddao();
+        dao = new abrirefeichar();
         rankl = new ArrayList<>();
         rankl.add("sem rank");
         rankl.add("prata 1");
@@ -104,7 +104,6 @@ public class jframe extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         KillButton.setText("Kill");
         KillButton.setToolTipText("");
@@ -113,7 +112,6 @@ public class jframe extends javax.swing.JFrame {
                 KillButtonMouseClicked(evt);
             }
         });
-        getContentPane().add(KillButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 199, 65, -1));
 
         Kda.setText("KDA");
         Kda.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,27 +119,26 @@ public class jframe extends javax.swing.JFrame {
                 KdaMouseClicked(evt);
             }
         });
-        getContentPane().add(Kda, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 199, 65, -1));
 
-        wld.setText("wld");
+        wld.setText("WLD");
         wld.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 wldMouseClicked(evt);
             }
         });
-        getContentPane().add(wld, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 199, 65, -1));
 
-        socore.setText("socore");
+        socore.setText("Score");
         socore.setActionCommand("score");
         socore.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 socoreMouseClicked(evt);
             }
         });
-        getContentPane().add(socore, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 199, 75, -1));
-        getContentPane().add(campo_kill, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 294, 60, -1));
-        getContentPane().add(campo_assisti, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 319, 60, -1));
-        getContentPane().add(campo_death, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 343, 60, -1));
+        socore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                socoreActionPerformed(evt);
+            }
+        });
 
         incluir.setText("Incluir");
         incluir.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +146,6 @@ public class jframe extends javax.swing.JFrame {
                 incluirActionPerformed(evt);
             }
         });
-        getContentPane().add(incluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 134, -1));
 
         deletar.setText("Deletar");
         deletar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,33 +153,24 @@ public class jframe extends javax.swing.JFrame {
                 deletarActionPerformed(evt);
             }
         });
-        getContentPane().add(deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 199, -1, -1));
 
         rank.setText("Rank");
-        getContentPane().add(rank, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 199, -1, -1));
 
         campo_score.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_scoreActionPerformed(evt);
             }
         });
-        getContentPane().add(campo_score, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 369, 60, -1));
 
         jLabel1.setText("Kill :");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 297, -1, -1));
 
         jLabel2.setText("Assists :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 322, -1, -1));
 
         jLabel3.setText("Death :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 345, -1, -1));
 
         jLabel4.setText("Score :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 372, -1, -1));
 
         jLabel5.setText("Patente :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 261, -1, -1));
-        getContentPane().add(patente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 70, -1));
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,15 +182,12 @@ public class jframe extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabela);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 22, 527, 151));
-
         win.setText("WIN");
         win.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 winActionPerformed(evt);
             }
         });
-        getContentPane().add(win, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 293, -1, -1));
 
         loss.setText("LOSS");
         loss.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +195,6 @@ public class jframe extends javax.swing.JFrame {
                 lossActionPerformed(evt);
             }
         });
-        getContentPane().add(loss, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 318, -1, -1));
 
         draw.setText("DRAW");
         draw.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +202,109 @@ public class jframe extends javax.swing.JFrame {
                 drawActionPerformed(evt);
             }
         });
-        getContentPane().add(draw, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 342, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(KillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(Kda, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(wld, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel1))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(campo_kill, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(campo_assisti, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addGap(4, 4, 4)
+                                            .addComponent(campo_death, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(campo_score, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(loss)
+                                    .addComponent(win)
+                                    .addComponent(draw))))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(9, 9, 9)
+                                .addComponent(patente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(socore, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(rank)
+                                .addGap(43, 43, 43)
+                                .addComponent(deletar))
+                            .addComponent(incluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(KillButton)
+                    .addComponent(Kda)
+                    .addComponent(wld)
+                    .addComponent(socore)
+                    .addComponent(rank)
+                    .addComponent(deletar))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campo_kill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(win))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loss)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel5))
+                            .addComponent(patente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(draw))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campo_assisti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campo_death, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(campo_score, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(incluir)))))
+                .addGap(79, 79, 79))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -241,32 +326,49 @@ public class jframe extends javax.swing.JFrame {
 
     private void KillButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KillButtonMouseClicked
         // TODO add your handling code here:
+        if(dao.getList1().isEmpty()){
+             JOptionPane.showMessageDialog(null," sem dados");
+             return;
+        }
+        
         geraGrafico gk = new geraGrafico("Kill", 0, dao.getList1());
         gk.pack();
         RefineryUtilities.centerFrameOnScreen(gk);
         gk.setVisible(true);
-        gk.setDefaultCloseOperation(ApplicationFrame.DO_NOTHING_ON_CLOSE);
+        gk.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
         
         
     }//GEN-LAST:event_KillButtonMouseClicked
 
     private void KdaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KdaMouseClicked
-        // TODO add your handling code here:
+       
+        if(dao.getList1().isEmpty()){
+             JOptionPane.showMessageDialog(null," sem dados");
+             return;
+        }
+        
+        
         geraGrafico gk = new geraGrafico("KDA", 1, dao.getList1());
         gk.pack();
         RefineryUtilities.centerFrameOnScreen(gk);
         gk.setVisible(true);
-        gk.setDefaultCloseOperation(ApplicationFrame.DO_NOTHING_ON_CLOSE);
+        gk.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
     }//GEN-LAST:event_KdaMouseClicked
 
     private void wldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wldMouseClicked
         // TODO add your handling code here:
+        if(dao.getList1().isEmpty()){
+             JOptionPane.showMessageDialog(null," sem dados");
+             return;
+        }
+        
         geraGrafico gk = new geraGrafico("WLD", 2, dao.getList1());
         gk.pack();
         RefineryUtilities.centerFrameOnScreen(gk);
         gk.setVisible(true);
-        gk.setDefaultCloseOperation(ApplicationFrame.DO_NOTHING_ON_CLOSE);
+        gk.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         
 
@@ -274,11 +376,16 @@ public class jframe extends javax.swing.JFrame {
 
     private void socoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_socoreMouseClicked
         // TODO add your handling code here:
+        if(dao.getList1().isEmpty()){
+             JOptionPane.showMessageDialog(null," sem dados");
+             return;
+        }
+        
         geraGrafico gk = new geraGrafico("Score",3, dao.getList1());
         gk.pack();
         RefineryUtilities.centerFrameOnScreen(gk);
         gk.setVisible(true);
-        gk.setDefaultCloseOperation(ApplicationFrame.DO_NOTHING_ON_CLOSE);
+        gk.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }//GEN-LAST:event_socoreMouseClicked
 
@@ -314,9 +421,9 @@ public class jframe extends javax.swing.JFrame {
         
         p.setDeath(Integer.parseInt(campo_death.getText()));
         
-        if( campo_score.getText() == null || "".equals(campo_score.getText())  )
+        if( campo_score.getText() == null || "".equals(campo_score.getText()) || Integer.parseInt(campo_score.getText()) < (p.getKill() * 2)+p.getAssist()  )
         {
-            JOptionPane.showMessageDialog(null," socore sem nada ");
+            JOptionPane.showMessageDialog(null," socore invalido ");
             return;
         }
         p.setScore(Integer.parseInt(campo_score.getText()));
@@ -365,6 +472,11 @@ public class jframe extends javax.swing.JFrame {
 
     private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed
         // TODO add your handling code here:
+          // TODO add your handling code here:
+        if(dao.getList1().isEmpty()){
+             JOptionPane.showMessageDialog(null,"sem dados");
+             return;
+        }
         
         List<partida> listaux = new ArrayList<>();
         try {
@@ -387,6 +499,10 @@ public class jframe extends javax.swing.JFrame {
         // TODO add your handling code here:
         dao.salvaresair(0);
     }//GEN-LAST:event_formWindowClosing
+
+    private void socoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_socoreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_socoreActionPerformed
 
     private void attlist() {
         
@@ -470,7 +586,7 @@ public class jframe extends javax.swing.JFrame {
     private javax.swing.JToggleButton wld;
     // End of variables declaration//GEN-END:variables
 
-    private cddao dao;
+    private abrirefeichar dao;
     private List<String> rankl ;
    
     private String controlawld(Integer wld) {

@@ -38,7 +38,7 @@ public class geraGrafico extends  ApplicationFrame{
          
          
          }
-         ChartPanel graf = new ChartPanel (chart);
+         graf = new ChartPanel (chart);
          graf.setPreferredSize(new java.awt.Dimension(560, 367));
          XYPlot plot = chart.getXYPlot();
          XYLineAndShapeRenderer rendrer = new XYLineAndShapeRenderer();
@@ -46,11 +46,17 @@ public class geraGrafico extends  ApplicationFrame{
          rendrer.setSeriesStroke(0,new BasicStroke(4.0f));
          plot.setRenderer(rendrer);
          setContentPane(graf); 
+         
             
          
          
         }
-      
+        
+    @Override
+        public void   windowClosing(java.awt.event.WindowEvent event){
+            graf.setVisible( false );
+        }
+  
     
     
     
@@ -109,6 +115,6 @@ public class geraGrafico extends  ApplicationFrame{
          return data;    }
         
     
-        
+        ChartPanel graf ;
      
 }
